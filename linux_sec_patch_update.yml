@@ -1,0 +1,13 @@
+---
+- name: linux server security path update
+  hosts: all
+  tasks:
+    - name: check security updates
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+      register: dnf_output
+
+    - name: show that yum output
+      ansible.builtin.debug:
+        var: dnf_output

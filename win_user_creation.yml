@@ -1,0 +1,19 @@
+---
+- name: Create User
+  hosts: all
+  tasks:
+    - name: Ensure user {{ myuser }} is present
+      ansible.windows.win_user:
+        name: "{{ myuser }}"
+        password: "{{ mypassword }}"
+        state: present
+        groups:
+          - Users
+
+    - name: Display Username Entered
+      ansible.builtin.debug:
+        msg: "The username is: {{ myuser }}"
+
+    - name: Display default Password
+      ansible.builtin.debug:
+        msg: "Password: {{ mypassword }}"

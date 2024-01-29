@@ -1,0 +1,14 @@
+---
+- name: user module
+  hosts: all
+  tasks: 
+    - name: user {{ myuser }} creation
+      ansible.builtin.user:
+        name: "{{ myuser }}"
+        state: present
+
+    - name: Display Username Entered
+      ansible.builtin.debug:
+        msg: "The username is: {{ myuser }}"
+
+      

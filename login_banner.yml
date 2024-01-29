@@ -1,0 +1,49 @@
+---
+- name: Command Line Warning Banners
+  hosts: all
+  tasks:
+    - name: Ensure message of the day is configured properly
+      ansible.builtin.template:
+        src: etc/motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Ensure local login warning banner is configured properly
+      ansible.builtin.template:
+        src: etc/issue.j2
+        dest: /etc/issue
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Ensure remote login warning banner is configured properly
+      ansible.builtin.template:
+        src: etc/issue.net.j2
+        dest: /etc/issue.net
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Ensure permissions on /etc/motd are configured
+      ansible.builtin.file:
+        path: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Ensure permissions on /etc/issue are configured
+      ansible.builtin.file:
+        path: /etc/issue
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Ensure permissions on /etc/issue.net are configured
+      ansible.builtin.file:
+        path: /etc/issue.net
+        owner: root
+        group: root
+        mode: '0644'
+

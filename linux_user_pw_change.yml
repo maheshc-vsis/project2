@@ -1,0 +1,9 @@
+---
+- name: user module
+  hosts: all
+  tasks:
+    - name: user {{ myuser }} password change
+      ansible.builtin.user:
+        name: "{{ myuser }}"
+        state: present
+        password: "{{ mypassword | password_hash('sha512') }}"
