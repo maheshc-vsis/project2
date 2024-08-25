@@ -6,6 +6,6 @@
       ansible.builtin.user:
         name: "{{ myuser }}"
         remove: true
-        state: adsent
+        state: absent
 
       
