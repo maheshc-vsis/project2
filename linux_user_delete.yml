@@ -1,0 +1,11 @@
+---
+- name: user module
+  hosts: all
+  tasks: 
+    - name: user {{ myuser }} deletion
+      ansible.builtin.user:
+        name: "{{ myuser }}"
+        remove: true
+        state: adsent
+
+      
