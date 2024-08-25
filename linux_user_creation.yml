@@ -5,7 +5,7 @@
     - name: user {{ myuser }} creation
       ansible.builtin.user:
         name: "{{ myuser }}"
-        state: present
+        state: absent
 
     - name: Display Username Entered
       ansible.builtin.debug:
