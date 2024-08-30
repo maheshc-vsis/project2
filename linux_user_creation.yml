@@ -5,7 +5,7 @@
     - name: user {{ myuser }} creation
       ansible.builtin.user:
         name: "{{ myuser }}"
-        comment: "{{ comment }}"
+        comment: "{{ comments }}"
         state: present
 
     - name: Display Username Entered
