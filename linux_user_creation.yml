@@ -6,6 +6,7 @@
       ansible.builtin.user:
         name: "{{ myuser }}"
         comment: "{{ comment }}"
+        group: wheel
         state: present
 
     - name: Display Username Entered
